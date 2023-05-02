@@ -1,0 +1,52 @@
+name: Deploy Site
+on:
+  workflow_call:
+    inputs:
+      environment:
+        description: Which environment to deploy to
+        required: true
+        type: string
+
+jobs:
+  deploy-site:
+    name: Deploy site to ${{ inputs.environment }} environment
+    ## Only do this if the repo is NCIOCPL
+    if: startsWith(github.repository, 'NCIOCPL')
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    steps:
+
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Zip site
+        run: |
+          zip -j ../${{ inputs.environment }}.zip public/*
+
+      - name: Upload artifact to netstorage
+        uses: nciocpl/netstorage-upload-action@v1.0.0
+        with:
+          hostname: ${{ secrets.ns_hostname }}
+          cp-code: ${{ secrets.ns_cpcode }}
+          key-name: ${{ secrets.ns_keyname }}
+          key: ${{ secrets.ns_key }}
+          index-zip: true
+          local-path: ${{ format('../{0}.zip', inputs.environment) }}
+          ## Note this action automatically prepends the cpcode to the path.
+          destination-path: ${{ format('/{0}.zip', inputs.environment) }}
+
+      - name: Clear Site Cache
+        uses: nciocpl/akamai-purge-action@v1.0.2
+        with:
+          hostname: ${{ secrets.eg_hostname }}
+          client-token: ${{ secrets.eg_client_token }}
+          client-secret: ${{ secrets.eg_client_secret }}
+          access-token: ${{ secrets.eg_access_token }}
+          type: "cpcodes"
+          ref: ${{ format('{0},{1}', secrets.ns_cpcode, secrets.prop_cpcode) }}
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: static-content
+          path: ${{ format('../{0}.zip', inputs.environment) }}

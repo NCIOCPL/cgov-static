@@ -1,0 +1,18 @@
+name: Build and Deploy to Production
+on:
+  push:
+    branches:
+      - main
+
+#cancel previous runs for this ref
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  
+  call-workflow-deploy:
+    uses: ./.github/workflows/deploy-site.yml
+    with:
+      environment: Prod
+    secrets: inherit
