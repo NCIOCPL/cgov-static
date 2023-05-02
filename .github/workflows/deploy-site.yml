@@ -45,8 +45,13 @@ jobs:
           type: "cpcodes"
           ref: ${{ format('{0},{1}', secrets.ns_cpcode, secrets.prop_cpcode) }}
 
+      # We can't access ../ using upload-artifact
+      - name: Move zip to archive
+        run: |
+          mv ../${{ inputs.environment }}.zip .
+
       - name: Archive artifacts
         uses: actions/upload-artifact@v3
         with:
           name: static-content
-          path: ${{ format('../{0}.zip', inputs.environment) }}
+          path: ${{ format('{0}.zip', inputs.environment) }}
