@@ -15,13 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     steps:
-
       - name: Checkout branch
         uses: actions/checkout@v3
 
       - name: Zip site
         run: |
-          zip -j ../${{ inputs.environment }}.zip public/*
+          pushd public
+          zip -r ../${{ inputs.environment }}.zip ./*
+          popd
 
       - name: Upload artifact to netstorage
         uses: nciocpl/netstorage-upload-action@v1.0.0
@@ -31,7 +32,7 @@ jobs:
           key-name: ${{ secrets.ns_keyname }}
           key: ${{ secrets.ns_key }}
           index-zip: true
-          local-path: ${{ format('../{0}.zip', inputs.environment) }}
+          local-path: ${{ format('{0}.zip', inputs.environment) }}
           ## Note this action automatically prepends the cpcode to the path.
           destination-path: ${{ format('/{0}.zip', inputs.environment) }}
 
@@ -44,11 +45,6 @@ jobs:
           access-token: ${{ secrets.eg_access_token }}
           type: "cpcodes"
           ref: ${{ format('{0},{1}', secrets.ns_cpcode, secrets.prop_cpcode) }}
-
-      # We can't access ../ using upload-artifact
-      - name: Move zip to archive
-        run: |
-          mv ../${{ inputs.environment }}.zip .
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v3
