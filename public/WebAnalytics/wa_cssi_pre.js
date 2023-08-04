@@ -7,7 +7,8 @@ var wa_channel = '';
 var wa_search_function_name = '';
 var wa_production_url_match = '';
 var currentHostname = location.hostname.toLowerCase();
-var wa_linkInternalFilters = 'javascript:,' + currentHostname;
+var wa_linkInternalFilters = 'javascript:,' + currentHostname + ',';
+wa_production_linkInternalFilters += "itcr.cancer.gov";
 var page_URL = document.URL;
 var wa_p30 = '';
 var wa_p44 = '';
@@ -52,6 +53,12 @@ else if (page_URL.indexOf('assays.cancer.gov') != -1) {
     wa_channel = 'CSSI - Assays';
     wa_search_function_name = 'CSSI - Assays- Search';
     wa_production_url_match = 'assays.cancer.gov';
+}
+else if (page_URL.indexOf('itcr.cancer.gov') != -1) {	
+    wa_channel = 'CSSI - ITCR';
+    wa_search_function_name = 'CSSI - ITCR - Search';
+    wa_production_url_match = 'itcr.cancer.gov';
+    wa_is_production_report_suite = true;
 }
 else {
     wa_channel = 'CSSI dev';
