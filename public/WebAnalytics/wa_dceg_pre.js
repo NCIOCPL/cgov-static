@@ -26,6 +26,7 @@ wa_production_linkInternalFilters += 'radtechstudy.nci.nih.gov,';
 wa_production_linkInternalFilters += 'rbstudy.cancer.gov,';
 wa_production_linkInternalFilters += 'transplantmatch.cancer.gov';
 wa_production_linkInternalFilters += 'rasopathies.cancer.gov';
+wa_production_linkInternalFilters += 'radiationcalculators.cancer.gov';
 var wa_dev_linkInternalFilters = 'javascript:';
 var wa_is_production_report_suite = false;
 var wa_p30 = "";
@@ -149,10 +150,16 @@ else if (page_URL.indexOf('transplantmatch.cancer.gov') != -1) {
 	wa_is_production_report_suite = true;
 }
 else if (page_URL.indexOf('rasopathies.cancer.gov') != -1) { 
-        wa_channel = 'DCEG - RASopathies'; 
-        wa_search_function_name = 'DCEG - RASopathies- Search'; 
-        wa_production_url_match = 'rasopathies.nci.nih.gov'; 
-        wa_is_production_report_suite = true;
+	wa_channel = 'DCEG - RASopathies'; 
+	wa_search_function_name = 'DCEG - RASopathies- Search'; 
+	wa_production_url_match = 'rasopathies.nci.nih.gov'; 
+	wa_is_production_report_suite = true;
+}
+else if (page_URL.indexOf('radiationcalculators.cancer.gov') != -1) {	
+	wa_channel = 'DCEG - Radiation Calculator';
+	wa_search_function_name = 'DCEG - Radiation Calculator - Search';
+	wa_production_url_match = 'radiationcalculators.cancer.gov';
+	wa_is_production_report_suite = true;
 }
 else {
 	wa_channel = 'DCEG - Development';
