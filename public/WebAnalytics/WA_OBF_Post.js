@@ -1,6 +1,7 @@
 // Version 2.1
 s.linkInternalFilters = wa_linkInternalFilters;
 s.channel=wa_channel;
+s.eVar59 = "static_" + "OBF_" + location.hostname.toLowerCase();
 
 if (wa_p30 != "")
 	s.prop30 = wa_p30;
