@@ -1,5 +1,6 @@
 s.linkInternalFilters = wa_linkInternalFilters;
 s.channel=wa_channel;
+s.eVar59 = "static_" + "Prevention_" + location.hostname.toLowerCase();
 s.events='event1';
 var s_code=s.t();if(s_code)document.write(s_code);
 

@@ -7,6 +7,7 @@ else
     s.linkInternalFilters = wa_dev_linkInternalFilters;
 
 s.channel=wa_channel;
+s.eVar59 = "static_" + "dceg_" + location.hostname.toLowerCase();
 
 if (wa_p30 != "")
 	s.prop30 = wa_p30;
