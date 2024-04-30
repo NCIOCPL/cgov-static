@@ -14,6 +14,7 @@ if(document.getElementById('ctl00_ContentPlaceHolder1_lblTitle') != null)
 }
 	
 s.channel=wa_channel;
+s.eVar59 = "static_" + "PUBS_" + location.hostname.toLowerCase();
 s.events='event1';
 var s_code=s.t();if(s_code)document.write(s_code);
 
