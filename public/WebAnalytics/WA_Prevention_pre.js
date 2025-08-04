@@ -9,20 +9,20 @@ var page_URL = document.URL;
 
 
 // Set channel, search name, and prod URL 
-if (page_URL.indexOf('dcp.cancer.gov') != -1) {    
+if (new URL(page_URL).hostname === 'dcp.cancer.gov') {    
     wa_production_url_match = 'dcp.cancer.gov';
 }
-else if (page_URL.indexOf('cpfp.cancer.gov') != -1) {
+else if (new URL(page_URL).hostname === 'cpfp.cancer.gov') {
     wa_channel = 'DCP - CPFP';
     wa_search_function_name = 'DCP - CPFP - Search';
     wa_production_url_match = 'cpfp.cancer.gov';
 }
-else if (page_URL.indexOf('glycomics.cancer.gov') != -1) {    
+else if (new URL(page_URL).hostname === 'glycomics.cancer.gov') {    
     wa_channel = 'DCP - Glycomics';
     wa_search_function_name = 'DCP - Glycomics - Search';
     wa_production_url_match = 'glycomics.cancer.gov';
 }
-else if (page_URL.indexOf('prevention.cancer.gov') != -1) {    
+else if (new URL(page_URL).hostname === 'prevention.cancer.gov') {    
     wa_production_url_match = 'prevention.cancer.gov';
 }
 else {
@@ -31,7 +31,7 @@ else {
 
 
 // Set Prod or Dev suite depending on URL
-if (page_URL.indexOf(wa_production_url_match) != -1 && wa_production_url_match.length > 0) {
+if (new URL(page_URL).hostname === wa_production_url_match && wa_production_url_match.length > 0) {
     var s_account = wa_production_report_suite;
 }
 else {

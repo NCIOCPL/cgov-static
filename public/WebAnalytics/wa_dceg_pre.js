@@ -35,127 +35,127 @@ var wa_hier2 = "";
 var page_URL = document.URL;
 
 
-if (page_URL.indexOf('aghealth.nih.gov') != -1) {	
+if (new URL(page_URL).hostname === 'aghealth.nih.gov') {	
 	wa_channel = 'DCEG - Agricultural Health Study';
 	wa_search_function_name = 'DCEG - Agricultural Health Study - Search';
 	wa_production_url_match = 'aghealth.nih.gov';
 	wa_is_production_report_suite = true;
 }
-else if (page_URL.indexOf('analysistools.nci.nih.gov/nevustool') != -1) {	
+else if (new URL(page_URL).hostname === 'analysistools.nci.nih.gov' && new URL(page_URL).pathname.startsWith('/nevustool')) {	
 	wa_channel = 'DCEG - Moles to Melanoma';
 	wa_search_function_name = 'DCEG - Moles to Melanoma - Search';
 	wa_production_url_match = 'analysistools.nci.nih.gov/nevustool';
 	wa_is_production_report_suite = true;
 }
-else if (page_URL.indexOf('atbcstudy.cancer.gov') != -1) {	
+else if (new URL(page_URL).hostname === 'atbcstudy.cancer.gov') {	
 	wa_channel = 'DCEG - ATBC Study';
 	wa_search_function_name = 'DCEG - ATBC Study - Search';
 	wa_production_url_match = 'atbcstudy.cancer.gov';
 	wa_is_production_report_suite = true;
 }
-else if (page_URL.indexOf('breastimaging.cancer.gov') != -1) {	
+else if (new URL(page_URL).hostname === 'breastimaging.cancer.gov') {	
 	wa_channel = 'DCEG - Breast Imaging';
 	wa_search_function_name = 'DCEG - Breast Imaging - Search';
 	wa_production_url_match = 'breastimaging.cancer.gov';
 	wa_is_production_report_suite = true;
 }
-else if (page_URL.indexOf('chernobyl.cancer.gov') != -1) {	
+else if (new URL(page_URL).hostname === 'chernobyl.cancer.gov') {	
 	wa_channel = 'DCEG - Chernobyl';
 	wa_search_function_name = 'DCEG - Chernobyl - Search';
 	wa_production_url_match = 'chernobyl.cancer.gov';
 	wa_is_production_report_suite = true;
 }
-else if (page_URL.indexOf('dceg2.cancer.gov') != -1) {	
+else if (new URL(page_URL).hostname === 'dceg2.cancer.gov') {	
 	wa_channel = 'DCEG - Main';
 	wa_search_function_name = 'DCEG - Main - Search';
 	wa_production_url_match = 'dceg2.cancer.gov';
 	wa_is_production_report_suite = true;
 }
-else if (page_URL.indexOf('dietandhealth.cancer.gov') != -1) {	
+else if (new URL(page_URL).hostname === 'dietandhealth.cancer.gov') {	
 	wa_channel = 'DCEG - Diet and Health';
 	wa_search_function_name = 'DCEG - Diet and Health - Search';
 	wa_production_url_match = 'dietandhealth.cancer.gov';
 	wa_is_production_report_suite = true;
 }
-else if (page_URL.indexOf('eagle.cancer.gov') != -1) {	
+else if (new URL(page_URL).hostname === 'eagle.cancer.gov') {	
 	wa_channel = 'DCEG - EAGLE';
 	wa_search_function_name = 'DCEG - EAGLE - Search';
 	wa_production_url_match = 'eagle.cancer.gov';
 	wa_is_production_report_suite = true;
 }
-else if (page_URL.indexOf('emblem.cancer.gov') != -1) {	
+else if (new URL(page_URL).hostname === 'emblem.cancer.gov') {	
 	wa_channel = 'DCEG - EMBLEM';
 	wa_search_function_name = 'DCEG - EMBLEM - Search';
 	wa_production_url_match = 'emblem.cancer.gov';
 	wa_is_production_report_suite = true;
 }
-else if (page_URL.indexOf('familial-testicular-cancer.cancer.gov') != -1) {	
+else if (new URL(page_URL).hostname === 'familial-testicular-cancer.cancer.gov') {	
 	wa_channel = 'DCEG - Familial Testicular Cancer';
 	wa_search_function_name = 'DCEG - Familial Testicular Cancer - Search';
 	wa_production_url_match = 'familial-testicular-cancer.cancer.gov';
 	wa_is_production_report_suite = true;
 }
-else if (page_URL.indexOf('hivmatch.cancer.gov') != -1) {	
+else if (new URL(page_URL).hostname === 'hivmatch.cancer.gov') {	
 	wa_channel = 'DCEG - HIV Match';
 	wa_search_function_name = 'DCEG - HIV Match - Search';
 	wa_production_url_match = 'hivmatch.cancer.gov';
 	wa_is_production_report_suite = true;
 }
-else if (page_URL.indexOf('icbc.cancer.gov') != -1) {	
+else if (new URL(page_URL).hostname === 'icbc.cancer.gov') {	
 	wa_channel = 'DCEG - ICBC';
 	wa_search_function_name = 'DCEG - ICBC - Search';
 	wa_production_url_match = 'icbc.cancer.gov';
 	wa_is_production_report_suite = true;
 }
-else if (page_URL.indexOf('lfs.cancer.gov') != -1) {	
+else if (new URL(page_URL).hostname === 'lfs.cancer.gov') {	
 	wa_channel = 'DCEG - LFS Study';
 	wa_search_function_name = 'DCEG - LFS Study - Search';
 	wa_production_url_match = 'lfs.cancer.gov';
 	wa_is_production_report_suite = true;
 }
-else if (page_URL.indexOf('marrowfailure.cancer.gov') != -1) {
+else if (new URL(page_URL).hostname === 'marrowfailure.cancer.gov') {
 	wa_channel = 'DCEG - Marrow Failure';
 	wa_search_function_name = 'DCEG - Marrow Failure - Search';
 	wa_production_url_match = 'marrowfailure.cancer.gov';
 	wa_is_production_report_suite = true;
 }
-else if (page_URL.indexOf('ovariancancer.gog199.cancer.gov') != -1) {	
+else if (new URL(page_URL).hostname === 'ovariancancer.gog199.cancer.gov') {	
 	wa_channel = 'DCEG - Ovarian Cancer';
 	wa_search_function_name = 'DCEG - Ovarian Cancer - Search';
 	wa_production_url_match = 'ovariancancer.gog199.cancer.gov';
 	wa_is_production_report_suite = true;
 }
-else if (page_URL.indexOf('ppb.cancer.gov') != -1) {	
+else if (new URL(page_URL).hostname === 'ppb.cancer.gov') {	
 	wa_channel = 'DCEG - PPB Study';
 	wa_search_function_name = 'DCEG - PPB Study - Search';
 	wa_production_url_match = 'ppb.cancer.gov';
 	wa_is_production_report_suite = true;
 }
-else if (page_URL.indexOf('radtechstudy.nci.nih.gov') != -1) {	
+else if (new URL(page_URL).hostname === 'radtechstudy.nci.nih.gov') {	
 	wa_channel = 'DCEG - RadTech Study';
 	wa_search_function_name = 'DCEG - RadTech Study - Search';
 	wa_production_url_match = 'radtechstudy.nci.nih.gov';
 	wa_is_production_report_suite = true;
 }
-else if (page_URL.indexOf('rbstudy.cancer.gov') != -1) {	
+else if (new URL(page_URL).hostname === 'rbstudy.cancer.gov') {	
 	wa_channel = 'DCEG RB Study';
 	wa_search_function_name = 'DCEG RB Study';
 	wa_production_url_match = 'rbstudy.cancer.gov';
 	wa_is_production_report_suite = true;
 }
-else if (page_URL.indexOf('transplantmatch.cancer.gov') != -1) {	
+else if (new URL(page_URL).hostname === 'transplantmatch.cancer.gov') {	
 	wa_channel = 'DCEG - Transplant Match';
 	wa_search_function_name = 'DCEG - Transplant Match - Search';
 	wa_production_url_match = 'transplantmatch.cancer.gov';
 	wa_is_production_report_suite = true;
 }
-else if (page_URL.indexOf('rasopathies.cancer.gov') != -1) { 
+else if (new URL(page_URL).hostname === 'rasopathies.cancer.gov') { 
 	wa_channel = 'DCEG - RASopathies'; 
 	wa_search_function_name = 'DCEG - RASopathies- Search'; 
 	wa_production_url_match = 'rasopathies.nci.nih.gov'; 
 	wa_is_production_report_suite = true;
 }
-else if (page_URL.indexOf('radiationcalculators.cancer.gov') != -1) {	
+else if (new URL(page_URL).hostname === 'radiationcalculators.cancer.gov') {	
 	wa_channel = 'DCEG - Radiation Calculator';
 	wa_search_function_name = 'DCEG - Radiation Calculator - Search';
 	wa_production_url_match = 'radiationcalculators.cancer.gov';
