@@ -13,7 +13,7 @@ var wa_p30 = '';
 var wa_p44 = '';
 
 // Set channel, search name, and prod URL 
-if (page_URL.indexOf('cssi.cancer.gov') != -1) {
+if (new URL(page_URL).hostname === 'cssi.cancer.gov') {
     wa_channel = 'CSSI - OD';
     wa_search_function_name = 'CSSI - OD - Search';
     wa_production_url_match = 'cssi.cancer.gov';
@@ -24,7 +24,7 @@ else {
 }
 
 // Set Prod or Dev suite depending on URL
-if (page_URL.indexOf(wa_production_url_match) != -1 && wa_production_url_match.length > 0)
+if (new URL(page_URL).hostname === wa_production_url_match && wa_production_url_match.length > 0)
     var s_account = wa_production_report_suite;
 else
     var s_account = wa_dev_report_suite;

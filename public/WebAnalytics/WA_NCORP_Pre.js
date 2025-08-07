@@ -13,7 +13,7 @@ var wa_p44 = "";
 var wa_hier2 = "";
 var page_URL = document.URL;
 
-if (page_URL.indexOf(wa_production_url_match) != -1) {
+if (new URL(page_URL).hostname === wa_production_url_match ) {
     // production
     var s_account = wa_production_report_suite;
 }

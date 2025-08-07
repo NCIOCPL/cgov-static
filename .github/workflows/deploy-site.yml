@@ -54,7 +54,7 @@ jobs:
           ref: ${{ format('{0},{1}', secrets.ns_cpcode, secrets.prop_cpcode) }}
 
       - name: Archive artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: static-content
           path: ${{ format('{0}.zip', inputs.environment) }}
