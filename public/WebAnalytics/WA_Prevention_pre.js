@@ -25,6 +25,9 @@ else if (new URL(page_URL).hostname === 'glycomics.cancer.gov') {
 else if (new URL(page_URL).hostname === 'prevention.cancer.gov') {    
     wa_production_url_match = 'prevention.cancer.gov';
 }
+else if (new URL(page_URL).hostname === 'applications.prevention.cancer.gov') {    
+    wa_production_url_match = 'applications.prevention.cancer.gov';
+}
 else {
     wa_channel = 'DCP - other';
 }
