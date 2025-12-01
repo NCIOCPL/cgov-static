@@ -7,6 +7,9 @@ on:
         required: true
         type: string
 
+permissions:
+  contents: read
+
 jobs:
   deploy-site:
     name: Deploy site to ${{ inputs.environment }} environment
@@ -16,7 +19,7 @@ jobs:
     environment: ${{ inputs.environment }}
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
 
       - name: Convert to lowercase
         run: |

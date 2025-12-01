@@ -9,8 +9,11 @@ concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
-  
+
   call-workflow-deploy:
     uses: ./.github/workflows/deploy-site.yml
     with:
